@@ -23,7 +23,50 @@ for fullname in athlete_name:
 athlete_id = data[1]
 athelete_link = f"https://www.athletic.net/athlete/{athlete_id}/cross-country/high-school"
 
+# get header names
 header = data[2]
+for index in range(len(header)):
+   if index == 0:
+      pass
+   if index == 1:
+      column_title_place = header[index]
+   if index == 2:
+      column_title_grade = header[index]
+   if index == 3:
+      column_title_time = header[index]
+   if index == 4:
+      column_title_date = header[index]
+   if index == 5:
+      column_title_meet = header[index]
+   if index == 6:
+      column_title_comments = header[index]
+   # if index == 7:
+   #    column_title_photo = header[index]
+
+
+# season records
+season_records = []
+for row in data:
+   # skip the header
+   if len(row) < 3:
+      continue
+   if row[0] == "Name":
+      continue
+   print(f"row is {row}")
+
+   # only work through it if it's a year
+   # append season, grade, time to season list
+   if int(row[1]) > 1999:
+      season_info = []
+      season_info.append(int(row[1]))
+      season_info.append(int(row[2]))
+      season_info.append(row[3])
+
+      # append season data
+      season_records.append(season_info)
+
+
+print(f"season records is {season_records}")
 
 
 
@@ -68,7 +111,7 @@ html_content = f'''<!DOCTYPE html>
       </header>
 
       <section>
-         {team_results_link}
+         team_results_link
       </section>
    <main>
 '''
