@@ -13,7 +13,11 @@ with open(csv_file, newline='', encoding='utf-8') as file:
    for item in data:
       if item == []:
          data.remove(item)
-   print(f"\n\n\n\ndata is now {data}")
+   
+   count = 0
+   for row in data:
+      print(f"\nrow {count} is now {row}\n")
+      count += 1
 
 
 # Extract the data from the CSV
@@ -21,27 +25,7 @@ athlete_name = data[0]
 for fullname in athlete_name:
    athlete_first_last_name = fullname.split()
 athlete_id = data[1]
-athelete_link = f"https://www.athletic.net/athlete/{athlete_id}/cross-country/high-school"
-
-# get header names
-header = data[2]
-for index in range(len(header)):
-   if index == 0:
-      pass
-   if index == 1:
-      column_title_place = header[index]
-   if index == 2:
-      column_title_grade = header[index]
-   if index == 3:
-      column_title_time = header[index]
-   if index == 4:
-      column_title_date = header[index]
-   if index == 5:
-      column_title_meet = header[index]
-   if index == 6:
-      column_title_comments = header[index]
-   # if index == 7:
-   #    column_title_photo = header[index]
+athelete_link = f"https://www.athletic.net/athlete/{athlete_id[0]}/cross-country/high-school"
 
 
 # season records
@@ -52,7 +36,7 @@ for row in data:
       continue
    if row[0] == "Name":
       continue
-   print(f"row is {row}")
+   # print(f"row is {row}")
 
    # only work through it if it's a year
    # append season, grade, time to season list
@@ -64,21 +48,77 @@ for row in data:
 
       # append season data
       season_records.append(season_info)
+# print(f"season records is {season_records}")
+# define fstring with data for each season
+# 4 max seasons so index from 3 to 0
+year_4_records = ""
+year_3_records = ""
+year_2_records = ""
+year_1_records = ""
+for season in season_records:
+   try:
+      year_4 = season_records[3]
+      year_4_records = f"Year: {(season_records[3])[0]}   Grade: {(season_records[3])[1]}   Best Time: {(season_records[3])[2]}"
+   except:
+      pass
+   
+   try:
+      year_3 = season_records[2]
+      year_3_records = f"Year: {(season_records[2])[0]}   Grade: {(season_records[2])[1]}   Best Time: {(season_records[2])[2]}"
+   except:
+      pass
+   
+   try:
+      year_2 = season_records[1]
+      year_2_records = f"Year: {(season_records[1])[0]}   Grade: {(season_records[1])[1]}   Best Time: {(season_records[1])[2]}"
+   except:
+      pass
+   
+   try:
+      year_1 = season_records[0]
+      year_1_records = f"Year: {(season_records[0])[0]}   Grade: {(season_records[0])[1]}    Best Time: {(season_records[0])[2]}"
+   except:
+      pass
 
+races = []
+for row in data:
+   # skip the header
+   if len(row) < 3:
+      continue   
+   if row[0] == "Name":
+      continue
 
-print(f"season records is {season_records}")
+   if int(row[1]) < 1999:
+      rowdict = dict(place = row[1], time = row[3], date = row[4], meet = row[5], comments = row[6], photo = row[7])
+      races.append(rowdict)
+print(f"races list is {races}")
 
+# compare dates
+races_2024 = []
+for race in races:
+   if "Aug" in race["date"][0:3]:
+      break
+   races_2024.append(race)
 
+def table_maker(list_dicts):
+   # Create the header row (assuming all dictionaries have the same keys)
+   html_table = "<table border='1'>\n"
+   html_table += "  <tr>\n"
+   for key in list_dicts[0].keys():
+      html_table += f"    <th>{key}</th>\n"
+   html_table += "  </tr>\n"
 
+   # Create the data rows
+   for entry in list_dicts:
+      html_table += "  <tr>\n"
+      for value in entry.values():
+         html_table += f"    <td>{value}</td>\n"
+      html_table += "  </tr>\n"
 
-# print(f"meet name {meet_name}")
-# print(f"meet_date {meet_date}")
-# print(f"folder_name {folder_name}")
-# print(f"race_comments{race_comments}")
+   html_table += "</table>"
+   return html_table
 
-
-# Athlete details start from row 2 (index 1)
-athletes = data[1:]
+races_2024_formatted = table_maker(races_2024)
 
 
 # Start building the HTML structure
@@ -99,7 +139,7 @@ html_content = f'''<!DOCTYPE html>
 
       <header>
          <h1>{athlete_name[0]} Cross Country Statistics</h1>
-         <a href={athelete_link[0]}>{athlete_first_last_name[0]}'s Athletic.net Profile</a>
+         <a href={athelete_link}>{athlete_first_last_name[0]}'s Athletic.net Profile</a>
          <nav>
             <ul>
                <li><a href="<{PAGENAME}>">PAGENAME</a></li>
@@ -110,8 +150,15 @@ html_content = f'''<!DOCTYPE html>
          </nav>
       </header>
 
+      <section class="season_records">
+         {year_4_records}
+         {year_3_records}
+         {year_2_records}
+         {year_1_records}
+      </section>
+
       <section>
-         team_results_link
+         {races_2024_formatted}
       </section>
    <main>
 '''
