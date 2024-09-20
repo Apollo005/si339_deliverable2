@@ -26,7 +26,9 @@
     <section class="profile-header">
         <div class="profile-picture">
             <!-- Placeholder for profile image -->
-            <img id="profileImage" src="img/placeholder_pfp.jpg" alt="Profile picture" onclick="triggerUpload()" style="cursor: pointer;">
+            <label for="fileInput">
+                <img id="profileImage" src="img/placeholder_pfp.jpg" alt="Profile picture" style="cursor: pointer;">
+            </label>
             <!-- Hidden file input -->
             <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="loadImage(event)">
         </div>

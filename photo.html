@@ -15,7 +15,7 @@
     <header>
         <a href="index.html" class="nav-home-button">HOME</a>
         <form action="#" method="get" class="search-form">
-            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Hidden label for screen readers -->
+            <label for="search-input" class="sr-only">Search Athlete</label>
             <input id="search-input" type="text" placeholder="Search Athlete" name="q">
             <button type="submit" aria-label="Search">
                 <i class="fas fa-search"></i> <!-- Search icon from Font Awesome -->
@@ -28,12 +28,18 @@
         <section class="profile-header">
             <div class="profile-picture">
                 <!-- Placeholder for profile image -->
-                <img src="img/profile-placeholder.png" alt="Profile picture">
+                <label for="fileInput">
+                    <img id="profileImage" src="img/placeholder_pfp.jpg" alt="Profile picture" style="cursor: pointer;">
+                </label>
+                <!-- Hidden file input -->
+                <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="loadImage(event)">
             </div>
             <div class="profile-details">
                 <h2>Name, Age</h2>
                 <p>Ann Arbor Skyline, Grade</p>
-                <button class="photos-button">Photos</button>
+                <a href="athlete.html">
+                    <button class="photos-button">Stats</button>
+                </a>
             </div>
         </section>
 
@@ -54,6 +60,20 @@
             </div>
         </section>
     </main>
+
+<script>
+// Function to trigger the hidden file input when the image is clicked
+function triggerUpload() {
+    document.getElementById('fileInput').click();
+}
+
+// Function to load and display the selected image
+function loadImage(event) {
+    const image = document.getElementById('profileImage');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.onload = () => URL.revokeObjectURL(image.src); // Free memory
+}
+</script>
 
 </body>
 </html>
