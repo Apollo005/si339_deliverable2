@@ -11,15 +11,16 @@
 </head>
 
 <body>
-    <header>
-        <a href="index.html" class="nav-home-button">HOME</a>
-        <form action="#" method="get" class="search-form">
-            <button type="submit">
-                <i class="fas fa-search"></i> <!-- Search icon from Font Awesome -->
-            </button>
-            <input type="text" placeholder="Search Athlete" name="q">
-        </form>
-    </header>
+   <header>
+      <a href="index.html" class="nav-home-button">HOME</a>
+      <form action="#" method="get" class="search-form">
+          <label for="search-input" class="sr-only">Search Athlete</label> <!-- Hidden label for screen readers -->
+          <input id="search-input" type="text" placeholder="Search Athlete" name="q">
+          <button type="submit" aria-label="Search">
+              <i class="fas fa-search"></i> <!-- Search icon from Font Awesome -->
+          </button>
+      </form>
+  </header>  
 
     <main>
         <h1>Top 10 Overall Rankings for Men and Women</h1>

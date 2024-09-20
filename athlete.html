@@ -12,12 +12,13 @@
     <header>
         <a href="index.html" class="nav-home-button">HOME</a>
         <form action="#" method="get" class="search-form">
-            <button type="submit">
+            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Hidden label for screen readers -->
+            <input id="search-input" type="text" placeholder="Search Athlete" name="q">
+            <button type="submit" aria-label="Search">
                 <i class="fas fa-search"></i> <!-- Search icon from Font Awesome -->
             </button>
-            <input type="text" placeholder="Search Athlete" name="q">
         </form>
-    </header>
+    </header>    
     
     <!-- Include Font Awesome in the head section of your HTML -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">      
@@ -30,14 +31,14 @@
         </div>
         <div class="profile-details">
             <h2>Name, Age</h2>
-            <p>School, Grade, Graduation</p>
+            <p>Ann Arbor Skyline, Grade</p>
             <button class="photos-button">Photos</button>
         </div>
     </section>
 
     <section class="meet-results">
         <div class="meet-year season-box">
-            <h3>2024 [School]</h3>
+            <h3>2024</h3>
             <table>
                 <thead>
                     <tr>
@@ -88,7 +89,7 @@
 
     <section class="meet-results">
         <div class="meet-year season-box">
-            <h3>2023 [School]</h3>
+            <h3>2023</h3>
             <table>
                 <thead>
                     <tr>
