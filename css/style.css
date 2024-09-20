@@ -188,3 +188,39 @@ button, a {
         margin-right: 0;
     }
 }
+
+/* Photo Gallery Section */
+.photo-gallery {
+    margin-top: 40px;
+}
+
+.photo-gallery h3 {
+    font-size: 1.8em;
+    color: #1e445d; /* Keep the dark blue color */
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: transparent; /* Remove grey background */
+    padding: 0; /* Remove padding */
+    border-bottom: none; /* Remove the bottom border line */
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.photo-item img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}

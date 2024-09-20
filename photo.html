@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Athlete Photos</title>
+    <!-- Include Font Awesome for search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar similar to athlete.html -->
+    <header>
+        <a href="index.html" class="nav-home-button">HOME</a>
+        <form action="#" method="get" class="search-form">
+            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Hidden label for screen readers -->
+            <input id="search-input" type="text" placeholder="Search Athlete" name="q">
+            <button type="submit" aria-label="Search">
+                <i class="fas fa-search"></i> <!-- Search icon from Font Awesome -->
+            </button>
+        </form>
+    </header>  
+
+    <main>
+        <!-- Profile header with the profile picture and details like in athlete.html -->
+        <section class="profile-header">
+            <div class="profile-picture">
+                <!-- Placeholder for profile image -->
+                <img src="img/profile-placeholder.png" alt="Profile picture">
+            </div>
+            <div class="profile-details">
+                <h2>Name, Age</h2>
+                <p>Ann Arbor Skyline, Grade</p>
+                <button class="photos-button">Photos</button>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="photo-gallery">
+            <h3>Photo Gallery</h3>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="img/photo1.jpg" alt="Athlete Photo 1">
+                </div>
+                <div class="photo-item">
+                    <img src="img/photo2.jpg" alt="Athlete Photo 2">
+                </div>
+                <div class="photo-item">
+                    <img src="img/photo3.jpg" alt="Athlete Photo 3">
+                </div>
+                <!-- Add more photos as needed -->
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
