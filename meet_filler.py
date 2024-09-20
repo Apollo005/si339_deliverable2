@@ -1,19 +1,31 @@
 import csv
-csv_file = "athletes/womens_team/Ayla Balazer19352189.csv"
+csv_file = "athletes/mens_team/Alex Nemecek18820260.csv"
 
 # Open the CSV file and extract the data
 with open(csv_file, newline='', encoding='utf-8') as file:
-   reader = csv.reader(file)
+   reader = csv.reader(file, delimiter=',')
+   
+   # grab all the data
    data = list(reader)
-   # print(data)
+   # print(f"data is\n{data}")
+   
+   # remove empty objects
+   for item in data:
+      if item == []:
+         data.remove(item)
+   print(f"\n\n\n\ndata is now {data}")
 
 
 # Extract the data from the CSV
-meet_name = data[0]  # Column A - h1 (Meet Name)
-meet_date = data[1]  # Column B - h2 (Meet Date)
-team_results_link = data[2]  # Column C - hyperlink for the team-results section
-folder_name = data[3]  # Column D - folder name used in photo-gallery links
-race_comments = data[4]  # Column E - race-comments section
+athlete_name = data[0]
+for fullname in athlete_name:
+   athlete_first_last_name = fullname.split()
+athlete_id = data[1]
+athelete_link = f"https://www.athletic.net/athlete/{athlete_id}/cross-country/high-school"
+
+header = data[2]
+
+
 
 
 # print(f"meet name {meet_name}")
@@ -27,6 +39,8 @@ athletes = data[1:]
 
 
 # Start building the HTML structure
+PAGENAME = "test page"
+
 html_content = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,22 +48,32 @@ html_content = f'''<!DOCTYPE html>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel = "stylesheet" href = "css/reset.css">
    <link rel = "stylesheet" href = "css/style.css">
-   <title>{meet_name} Country Meet</title>
+   <title>{athlete_name[0]} Statistics</title>
 </head>
 
 <body>
+   <main>
 
+      <header>
+         <h1>{athlete_name[0]} Cross Country Statistics</h1>
+         <a href={athelete_link[0]}>{athlete_first_last_name[0]}'s Athletic.net Profile</a>
+         <nav>
+            <ul>
+               <li><a href="<{PAGENAME}>">PAGENAME</a></li>
+               <li><a href="<{PAGENAME}>">PAGENAME</a></li>
+               <li><a href="<{PAGENAME}>">PAGENAME</a></li>
+               <li><a href="<{PAGENAME}>">PAGENAME</a></li>
+            </ul>
+         </nav>
+      </header>
 
-   <header>
-       <h1>{meet_name}</h1>
-       <h2>{meet_date}</h2>
-   </header>
-
-   <section>
-      {team_results_link}
-   </section>
+      <section>
+         {team_results_link}
+      </section>
+   <main>
 '''
 
-filename = input("What do you want your file to be named?")
-with open("early_bird_m5k.html", "w") as f:
+filename = "test_html"
+filename += ".html"
+with open(filename, "w") as f:
    f.write(f"{html_content}")
