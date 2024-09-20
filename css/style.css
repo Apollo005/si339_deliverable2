@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #35A1E3;
+    background-color: #b7d6e9;
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -111,7 +111,7 @@ main {
 .photos-button {
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: #35A1E3;
+    background-color: #b7d6e9;
     color: black;
     border: none;
     border-radius: 5px;
