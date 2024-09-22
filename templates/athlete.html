@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Athlete Profile - {{ athlete_name }}</title>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="nav-home-button">HOME</a>
+        <form action="#" method="get" class="search-form">
+            <button type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+            <input type="text" placeholder="Search Athlete" name="q">
+        </form>
+    </header>
+
+<main>
+    <section class="profile-header">
+        <div class="profile-picture">
+            <img src="img/profile-placeholder.png" alt="Profile picture">
+        </div>
+        <div class="profile-details">
+            <h2>{{ athlete_name }}</h2>
+            <p>{{ athlete_grade }}th Grade, {{ athlete_school }}</p>
+            <button class="photos-button">Photos</button>
+        </div>
+    </section>
+
+    <section class="meet-results">
+        <div class="meet-year season-box">
+            <h3>{{ season_year }} Races</h3>
+            {{ races_2024_table | safe }}
+        </div>
+        <div class="season-records season-box">
+            <h3>Season Records</h3>
+            {{ all_records_table | safe }}
+        </div>
+        <div class="season-notes season-box">
+            <h3>Season Notes</h3>
+            <ul>
+                {{ season_notes | safe }}
+            </ul>
+        </div>
+    </section>
+
+</main>
+
+</body>
+</html>
