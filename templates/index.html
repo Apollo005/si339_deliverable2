@@ -21,11 +21,33 @@
         <section class="meet-results">
             <div class="season-box">
                 <h3>Top 10 Men</h3>
-                <table>{{ mens_top10_table | safe }}</table>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="athlete-alex.html">{{ mens_top10[0]['Name'] }}</a></td>
+                        <td>{{ mens_top10[0]['Time'] }}</td>
+                    </tr>
+                </table>
             </div>
             <div class="season-box">
                 <h3>Top 10 Women</h3>
-                <table>{{ womens_top10_table | safe }}</table>
+                <table>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="athlete-adrienne.html">{{ womens_top10[0]['Name'] }}</a></td>
+                        <td>{{ womens_top10[0]['Time'] }}</td>
+                    </tr>
+                </table>
             </div>
         </section>
     </main>
