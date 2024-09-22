@@ -26,7 +26,11 @@
     <section class="profile-header">
         <div class="profile-picture">
             <!-- Placeholder for profile image -->
-            <img src="img/profile-placeholder.png" alt="Profile picture">
+            <label for="fileInput">
+                <img id="profileImage" src="img/placeholder_pfp.jpg" alt="Profile picture" style="cursor: pointer;">
+            </label>
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="loadImage(event)">
         </div>
         <div class="profile-details">
             <h2>Name, Age</h2>
