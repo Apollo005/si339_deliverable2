@@ -7,6 +7,7 @@ env = Environment(loader=FileSystemLoader('templates'))
 # Paths to the CSV files for Adrienne Stewart and Alex Nemecek
 adrienne_csv = "athletes/womens_team/Adrienne Stewart21142907.csv"
 alex_csv = "athletes/mens_team/Alex Nemecek18820260.csv"
+amir_csv = "athletes/mens_team/Amir Abston25395576.csv"
 
 # Function to load and clean CSV data
 def load_csv_data(file_path):
@@ -26,10 +27,12 @@ def extract_athlete_info(data):
 # Load CSV data for both athletes
 adrienne_data = load_csv_data(adrienne_csv)
 alex_data = load_csv_data(alex_csv)
+amir_data= load_csv_data(amir_csv)
 
 # Extract athlete info
 adrienne_name, adrienne_id, adrienne_link, adrienne_grade = extract_athlete_info(adrienne_data)
 alex_name, alex_id, alex_link, alex_grade = extract_athlete_info(alex_data)
+amir_name, amir_id, amir_link, amir_grade = extract_athlete_info(amir_data)
 
 # Generate season records
 def extract_season_records(data):
@@ -41,6 +44,7 @@ def extract_season_records(data):
 # Extract season records for each athlete
 adrienne_records = extract_season_records(adrienne_data)
 alex_records = extract_season_records(alex_data)
+amir_records = extract_season_records(amir_data)
 
 # Generate dynamic HTML table from data
 def table_maker(list_dicts):
@@ -66,9 +70,10 @@ def table_maker(list_dicts):
 # Generate tables for season records
 adrienne_table = table_maker(adrienne_records)
 alex_table = table_maker(alex_records)
+amir_table = table_maker(amir_records)
 
 # Top 10 for index page
-mens_top10 = [{"Rank": 1, "Name": "Alex Nemecek", "Time": "19:21.4 SR"}]
+mens_top10 = [{"Rank": 1, "Name": "Alex Nemecek", "Time": "19:21.4 SR"}, {"Rank": 1, "Name": "Amir Abston", "Time": "25:25.0 PR"}]
 womens_top10 = [{"Rank": 1, "Name": "Adrienne Stewart", "Time": "23:31.1 SR"}]
 
 mens_top10_table = table_maker(mens_top10)
@@ -115,8 +120,22 @@ athlete_html_alex = athlete_template.render(
     all_records_table=alex_table,
     season_notes="<li>2024: Best season performance</li>"
 )
+
 with open("athlete-alex.html", "w") as f:
     f.write(athlete_html_alex)
 
+athlete_html_amir = athlete_template.render(
+    athlete_name=amir_name,
+    athlete_grade=amir_grade,
+    athlete_school="Ann Arbor Skyline",
+    season_year="2024",
+    races_2024_table=amir_table,
+    all_records_table=amir_table,
+    season_notes="<li>2024: Best season performance</li>"
+)
+
+with open("athlete-amir.html", "w") as f:
+    f.write(athlete_html_amir)
+
 # Confirm completion
-print('HTML pages generated for index, Adrienne Stewart, and Alex Nemecek')
+print('HTML pages generated for index, Adrienne Stewart, Alex Nemecek, and Amir Abston')
