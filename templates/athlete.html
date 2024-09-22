@@ -2,57 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Athlete Profile - {{ athlete_name }}</title>
-    <!-- Font Awesome CDN for the search icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Athlete Profile - {{ athlete_name }}</title>
+    <!-- Font Awesome CDN for the search icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="nav-home-button">HOME</a>
-        
-        <!-- Accessible search form with hidden label and icon button -->
-        <form action="#" method="get" class="search-form">
-            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Screen-reader only label -->
-            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
-            
-            <button type="submit" aria-label="Search">
-                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
-            </button>
-        </form>
-    </header>
+    <header>
+        <a href="index.html" class="nav-home-button">HOME</a>
+        
+        <!-- Accessible search form with hidden label and icon button -->
+        <form action="#" method="get" class="search-form">
+            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Screen-reader only label -->
+            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+            
+            <button type="submit" aria-label="Search">
+                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+            </button>
+        </form>
+    </header>
 
 <main>
-    <section class="profile-header">
-        <div class="profile-picture">
-            <img src="img/profile-placeholder.png" alt="Profile picture">
-        </div>
-        <div class="profile-details">
-            <h2>{{ athlete_name }}</h2>
-            <p>{{ athlete_grade }}th Grade, {{ athlete_school }}</p>
-            <button class="photos-button">Photos</button>
-        </div>
-    </section>
+    <section class="profile-header">
+        <div class="profile-picture">
+            <img src="img/profile-placeholder.png" alt="Profile picture">
+        </div>
+        <div class="profile-details">
+            <h1>{{ athlete_name }}</h1>
+            <p>{{ athlete_grade }}th Grade, {{ athlete_school }}</p>
+            <button class="photos-button">Photos</button>
+        </div>
+    </section>
 
-    <section class="meet-results">
-        <div class="meet-year season-box">
-            <h2>{{ season_year }} Races</h2>
-            {{ races_2024_table | safe }}
-        </div>
-        <div class="season-records season-box">
-            <h2>Season Records</h2>
-            {{ all_records_table | safe }}
-        </div>
-        <div class="season-notes season-box">
-            <h2>Season Notes</h2>
-            <ul>
-                {{ season_notes | safe }}
-            </ul>
-        </div>
-    </section>
+    <section class="meet-results">
+        <div class="meet-year season-box">
+            <h2>{{ season_year }} Races</h2>
+            {{ races_2024_table | safe }}
+        </div>
+        <div class="season-records season-box">
+            <h2>Season Records</h2>
+            {{ all_records_table | safe }}
+        </div>
+        <div class="season-notes season-box">
+            <h2>Season Notes</h2>
+            <ul>
+                {{ season_notes | safe }}
+            </ul>
+        </div>
+    </section>
 
 </main>
 

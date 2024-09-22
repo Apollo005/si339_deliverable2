@@ -36,6 +36,7 @@ p {
     font-family: 'Hind', sans-serif;
     text-decoration: none;
     font-weight: 600;
+    color: black;
 }
 
 /* Navbar Home Button */
@@ -131,14 +132,14 @@ main {
 .profile-details p {
     margin-top: 5px;
     font-size: 1.2em;
-    color: #777;
+    color: black;
 }
 
 .photos-button {
     margin-top: 10px;
     padding: 8px 12px;
     background-color: #67bae7;
-    color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
