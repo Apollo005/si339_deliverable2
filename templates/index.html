@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/reset.css">
    <link rel="stylesheet" href="css/style.css">
-   <title>Kaelyn.cc</title>
+   <title>{{ site_title }}</title>
 </head>
 <body>
     <header>
@@ -17,39 +17,15 @@
     </header>
 
     <main>
-        <h1>Top 10 Overall Rankings for Men and Women</h1>
+        <h1>{{ page_heading }}</h1>
         <section class="meet-results">
             <div class="season-box">
                 <h3>Top 10 Men</h3>
-                <table><table>
-<tr>
-<th>Rank</th>
-<th>Name</th>
-<th>Time</th>
-</tr>
-<tr>
-<td>1</td>
-<td>Alex Nemecek</td>
-<td>19:21.4 SR</td>
-</tr>
-</table>
-</table>
+                <table>{{ mens_top10_table | safe }}</table>
             </div>
             <div class="season-box">
                 <h3>Top 10 Women</h3>
-                <table><table>
-<tr>
-<th>Rank</th>
-<th>Name</th>
-<th>Time</th>
-</tr>
-<tr>
-<td>1</td>
-<td>Adrienne Stewart</td>
-<td>23:31.1 SR</td>
-</tr>
-</table>
-</table>
+                <table>{{ womens_top10_table | safe }}</table>
             </div>
         </section>
     </main>
