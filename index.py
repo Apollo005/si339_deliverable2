@@ -84,7 +84,7 @@ index_html = index_template.render(
 )
 
 # Save the generated index.html
-with open("index.html", "w") as f:
+with open("home.html", "w") as f:
     f.write(index_html)
 
 # Render and save athlete pages
