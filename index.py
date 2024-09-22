@@ -74,11 +74,13 @@ womens_top10 = [{"Rank": 1, "Name": "Adrienne Stewart", "Time": "23:31.1 SR"}]
 mens_top10_table = table_maker(mens_top10)
 womens_top10_table = table_maker(womens_top10)
 
-# Render the index.html template (for both men and women)
+# Render the index.html template (pass both top 10 lists)
 index_template = env.get_template('index.html')
 index_html = index_template.render(
     site_title="Men's and Women's Top 10 XC Times",
     page_heading="Top 10 Overall Rankings for Men and Women",
+    mens_top10=mens_top10,  # Pass the raw data list
+    womens_top10=womens_top10,  # Pass the raw data list
     mens_top10_table=mens_top10_table,
     womens_top10_table=womens_top10_table
 )
