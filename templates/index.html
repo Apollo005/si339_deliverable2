@@ -6,13 +6,21 @@
    <link rel="stylesheet" href="css/reset.css">
    <link rel="stylesheet" href="css/style.css">
    <title>{{ site_title }}</title>
+   <!-- Font Awesome CDN for the search icon -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <a href="index.html" class="nav-home-button" id="top">HOME</a>
+
+        <!-- Accessible search form with hidden label and icon button -->
         <form action="#" method="get" class="search-form">
-            <button type="submit"><i class="fas fa-search"></i></button>
-            <input type="text" placeholder="Search Athlete" name="q">
+            <label for="search-input" class="sr-only">Search Athlete</label> <!-- Screen-reader only label -->
+            <input type="text" id="search-input" placeholder="Search Athlete" name="q">
+            
+            <button type="submit" aria-label="Search">
+                <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+            </button>
         </form>
     </header>
 
@@ -20,7 +28,7 @@
         <h1>{{ page_heading }}</h1>
         <section class="meet-results">
             <div class="season-box">
-                <h3>Top 10 Men</h3>
+                <h2>Top 10 Men</h2>
                 <table>
                     <tr>
                         <th>Rank</th>
@@ -40,7 +48,7 @@
                 </table>
             </div>
             <div class="season-box">
-                <h3>Top 10 Women</h3>
+                <h2>Top 10 Women</h2>
                 <table>
                     <tr>
                         <th>Rank</th>
@@ -59,7 +67,7 @@
     </main>
     
     <footer>
-        <p>Created by Kaleyn Lin, Nick Pisarczyk, and Aditya Tambe for SI 339</p>
+        <p>Created by Kaelyn Lin, Nick Pisarczyk, and Aditya Tambe for SI 339</p>
         <a href="#top">Back to top</a>
     </footer>
 
