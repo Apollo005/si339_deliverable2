@@ -77,14 +77,14 @@ womens_top10_table = table_maker(womens_top10)
 # Render the index.html template (for both men and women)
 index_template = env.get_template('index.html')
 index_html = index_template.render(
-    site_title="Kaelyn.cc",
+    site_title="Men's and Women's Top 10 XC Times",
     page_heading="Top 10 Overall Rankings for Men and Women",
     mens_top10_table=mens_top10_table,
     womens_top10_table=womens_top10_table
 )
 
 # Save the generated index.html
-with open("home.html", "w") as f:
+with open("index.html", "w") as f:
     f.write(index_html)
 
 # Render and save athlete pages
@@ -117,4 +117,4 @@ with open("athlete-alex.html", "w") as f:
     f.write(athlete_html_alex)
 
 # Confirm completion
-'HTML pages generated for index, Adrienne Stewart, and Alex Nemecek'
+print('HTML pages generated for index, Adrienne Stewart, and Alex Nemecek')
