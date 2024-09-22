@@ -7,6 +7,8 @@ body {
 }
 
 header {
+    position: sticky;
+    top: 0;
     background-color: #67bae7;
     padding: 15px;
     display: flex;
@@ -16,6 +18,24 @@ header {
 
 header h1 {
     margin: 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+p {
+    font-family: 'Hind', sans-serif;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 /* Navbar Home Button */
